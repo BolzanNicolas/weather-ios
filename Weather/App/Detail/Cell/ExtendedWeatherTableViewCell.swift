@@ -43,6 +43,6 @@ extension ExtendedWeatherTableViewCell: UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return ExtendedWeatherCollectionViewCell.size
+        return ExtendedWeatherCollectionViewCell.SIZE
     }
 }

@@ -46,7 +46,7 @@ extension LocationSearchViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return SearchResultTableViewCell.height
+        return SearchResultTableViewCell.HEIGHT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

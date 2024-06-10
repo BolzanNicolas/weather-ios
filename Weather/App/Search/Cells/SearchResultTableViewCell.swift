@@ -12,9 +12,7 @@ final class SearchResultTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var resultLabel: UILabel!
     
-    static var height: CGFloat {
-        return 44
-    }
+    static let HEIGHT: CGFloat = 44
     
     func setup(with placemark: CLPlacemark) {
         let address = [placemark.name, placemark.administrativeArea, placemark.country]

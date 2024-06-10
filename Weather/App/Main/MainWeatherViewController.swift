@@ -52,7 +52,6 @@ final class MainWeatherViewController: UIViewController {
         }
         
         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus.app"), style: .plain, target: self, action: #selector(addLocation))
-        addButton.tintColor = .label
         DispatchQueue.main.async { [weak self] in
             self?.navigationItem.rightBarButtonItem = addButton
         }

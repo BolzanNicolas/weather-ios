@@ -14,9 +14,7 @@ final class ExtendedWeatherCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var weatherDescriptionLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
     
-    static var size: CGSize {
-        CGSize(width: 75, height: 105)
-    }
+    static let SIZE: CGSize = CGSize(width: 75, height: 105)
     
     override func prepareForReuse() {
         super.prepareForReuse()
