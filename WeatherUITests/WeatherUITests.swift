@@ -16,6 +16,7 @@ final class WeatherUITests: XCTestCase {
     }
     
     func testTableInitialRows() {
-        
+        let table = app.tables.matching(identifier: "mainTable")
+        XCTAssertEqual(table.cells.count, 0)
     }
 }
