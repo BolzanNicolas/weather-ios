@@ -31,25 +31,38 @@ final class MainWeatherTests: XCTestCase {
     
     func testGetWeatherFailureWithInvalidCoordinates() throws {
         let sut = MainWeatherViewModel(service: NetworkingManager(), localCoordinates: [])
+        let expectation = expectation(description: "successfully failed")
         
         sut.getCurrentWeather(for: .init(latitude: -305.9, longitude: 1)) { result in
             switch result {
-            case .failure(let error):
-                XCTAssertNotNil(error)
-            default: break
+            case .success:
+                XCTFail()
+            case .failure:
+                expectation.fulfill()
             }
         }
+        
+        waitForExpectations(timeout: 1)
     }
     
     func testGetWeatherSuccessWithValidCoordinates() throws {
         let sut = MainWeatherViewModel(service: NetworkingManager(), localCoordinates: [])
+        let expectation = expectation(description: "success")
+        var forecast: Forecast?
         
         sut.getCurrentWeather(for: .init(latitude: 0, longitude: 0)) { result in
             switch result {
-            case .success(let forecast):
-                XCTAssertNotNil(forecast)
-            default: break
+            case .success(let value):
+                forecast = value
+                expectation.fulfill()
+                
+            case .failure:
+                XCTFail()
             }
         }
+        
+        waitForExpectations(timeout: 3)
+        
+        XCTAssertNotNil(forecast)
     }
 }
